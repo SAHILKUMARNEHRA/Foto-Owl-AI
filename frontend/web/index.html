@@ -8,42 +8,60 @@
   </head>
   <body>
     <main class="page">
+      <nav class="topbar" aria-label="Application">
+        <div class="brand">
+          <span class="brand-mark">F</span>
+          <span>FotoOwl AI</span>
+        </div>
+        <span id="connectionBadge" class="connection-badge">Connecting</span>
+      </nav>
+
       <section class="hero">
-        <p class="eyebrow">FotoOwl Assignment Runner</p>
-        <h1>Run the image-to-video pipeline locally or against Render</h1>
+        <p class="eyebrow">Image-to-video agent pipeline</p>
+        <h1>Turn event photos into a rendered recap video</h1>
         <p class="subcopy">
-          Upload event photos, enter a creative brief, and fetch the generated storyboard, Remotion script,
-          pipeline trace, and final MP4.
+          Upload photos or run the included sample set. The pipeline analyzes images, writes a storyboard,
+          generates Remotion code, compiles it, and returns the final MP4.
         </p>
       </section>
 
-      <section class="panel">
-        <label for="apiBase">Backend API Base URL</label>
-        <input id="apiBase" type="url" placeholder="http://localhost:8000" />
+      <section class="workspace">
+        <section class="panel run-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Creative brief</p>
+            <h2>Generate a reel</h2>
+          </div>
 
-        <label for="prompt">Creative Prompt</label>
-        <textarea id="prompt" rows="5" placeholder="Create a cinematic event recap with elegant captions and warm tones."></textarea>
+          <label for="prompt">Prompt</label>
+          <textarea id="prompt" rows="5" placeholder="Cinematic wedding reel, slow and emotional, warm tones, minimal text."></textarea>
 
-        <label for="files">Upload Images</label>
-        <input id="files" type="file" accept=".jpg,.jpeg,.png,.webp" multiple />
+          <label for="files">Photos</label>
+          <input id="files" type="file" accept=".jpg,.jpeg,.png,.webp" multiple />
 
-        <div class="actions">
-          <button id="runSample" type="button">Run Sample Images</button>
-          <button id="runUpload" type="button">Run Uploaded Images</button>
-        </div>
+          <div class="actions">
+            <button id="runSample" class="secondary-button" type="button">Run Sample</button>
+            <button id="runUpload" class="primary-button" type="button">Generate Video</button>
+          </div>
+        </section>
+
+        <section class="panel status-panel">
+          <div class="status-row">
+            <div class="section-heading">
+              <p class="eyebrow">Pipeline</p>
+              <h2>Run status</h2>
+            </div>
+            <span id="statusBadge" class="badge idle">Idle</span>
+          </div>
+          <pre id="statusOutput">Waiting for a run.</pre>
+        </section>
       </section>
 
-      <section class="panel">
-        <div class="status-row">
-          <h2>Run Status</h2>
-          <span id="statusBadge" class="badge idle">Idle</span>
+      <section class="panel artifacts-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Outputs</p>
+          <h2>Artifacts</h2>
         </div>
-        <pre id="statusOutput">Waiting for a run.</pre>
-      </section>
-
-      <section class="panel">
-        <h2>Artifacts</h2>
-        <div id="artifacts" class="artifacts empty">No artifacts yet.</div>
+        <div id="artifacts" class="artifacts empty">Run the pipeline to see generated files.</div>
       </section>
     </main>
 
