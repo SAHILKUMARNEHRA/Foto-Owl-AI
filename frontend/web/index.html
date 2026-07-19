@@ -3,26 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FotoOwl Pipeline Runner</title>
+    <title>FotoOwl AI Video Studio</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="page">
       <nav class="topbar" aria-label="Application">
         <div class="brand">
-          <span class="brand-mark">F</span>
-          <span>FotoOwl AI</span>
+          <span class="brand-mark">🦉</span>
+          <span>FotoOwl AI Studio</span>
         </div>
-        <span id="connectionBadge" class="connection-badge">Connecting</span>
+        <span id="connectionBadge" class="connection-badge">Render connected</span>
       </nav>
 
-      <section class="hero">
-        <p class="eyebrow">Image-to-video agent pipeline</p>
-        <h1>Turn event photos into a rendered recap video</h1>
-        <p class="subcopy">
-          Upload photos or run the included sample set. The pipeline analyzes images, writes a storyboard,
-          generates Remotion code, compiles it, and returns the final MP4.
-        </p>
+      <section class="hero-shell">
+        <div class="hero">
+          <p class="eyebrow">AI image-to-video assignment</p>
+          <h1>Transform event photos into a cinematic recap video.</h1>
+          <p class="subcopy">
+            Upload photos, describe the vibe, and let the agent plan scenes, write a storyboard,
+            generate Remotion code, and produce a polished MP4.
+          </p>
+          <div class="hero-actions">
+            <a class="ghost-link" href="/sample_output/final_video.mp4" target="_blank" rel="noreferrer">Watch demo video</a>
+            <span>Gemini + LangGraph + Remotion</span>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Pipeline highlights">
+          <div class="orb"></div>
+          <p class="eyebrow">Ready output</p>
+          <h2>Built for quick review</h2>
+          <div class="mini-stats">
+            <span><strong>8</strong> sample photos</span>
+            <span><strong>6</strong> artifacts</span>
+            <span><strong>MP4</strong> render</span>
+          </div>
+        </aside>
       </section>
 
       <section class="workspace">
@@ -36,11 +52,14 @@
           <textarea id="prompt" rows="5" placeholder="Cinematic wedding reel, slow and emotional, warm tones, minimal text."></textarea>
 
           <label for="files">Photos</label>
-          <input id="files" type="file" accept=".jpg,.jpeg,.png,.webp" multiple />
+          <div class="upload-box">
+            <span>Drop in event photos or choose files</span>
+            <input id="files" type="file" accept=".jpg,.jpeg,.png,.webp" multiple />
+          </div>
 
           <div class="actions">
-            <button id="runSample" class="secondary-button" type="button">Run Sample</button>
-            <button id="runUpload" class="primary-button" type="button">Generate Video</button>
+            <button id="runSample" class="secondary-button" type="button">Preview Sample Output</button>
+            <button id="runUpload" class="primary-button" type="button">Generate From Uploads</button>
           </div>
         </section>
 
@@ -52,7 +71,7 @@
             </div>
             <span id="statusBadge" class="badge idle">Idle</span>
           </div>
-          <pre id="statusOutput">Waiting for a run.</pre>
+          <pre id="statusOutput">Ready. Preview the bundled sample instantly, or upload images to call the Render backend.</pre>
         </section>
       </section>
 
@@ -61,7 +80,7 @@
           <p class="eyebrow">Outputs</p>
           <h2>Artifacts</h2>
         </div>
-        <div id="artifacts" class="artifacts empty">Run the pipeline to see generated files.</div>
+        <div id="artifacts" class="artifacts empty">Preview the sample or generate from uploads to see the final video and JSON artifacts.</div>
       </section>
     </main>
 

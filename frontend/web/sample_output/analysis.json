@@ -1,0 +1,230 @@
+[
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6008.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6008",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 237.41844177246094,
+    "brightness": 116.8353519955654,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6008.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6020.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6020",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 287.8303527832031,
+    "brightness": 135.68700296464206,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6020.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6024.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6024",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 274.624267578125,
+    "brightness": 133.34940601985667,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6024.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6052.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6052",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 305.83758544921875,
+    "brightness": 131.0614934941202,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6052.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6065.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6065",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 164.8910675048828,
+    "brightness": 152.41523078674373,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6065.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6076.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6076",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 219.4197540283203,
+    "brightness": 114.33132584831327,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6076.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6106.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6106",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 291.5453186035156,
+    "brightness": 114.01647210216468,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6106.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6142.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6142",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 267.4762878417969,
+    "brightness": 138.20048348659725,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6142.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6148.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6148",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 130.6464385986328,
+    "brightness": 132.42671444409248,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6148.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6157.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6157",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 197.46009826660156,
+    "brightness": 121.96909905072062,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6157.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6160.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6160",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 70.29481506347656,
+    "brightness": 105.61315547543158,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6160.jpg contributes a polished moment to the event recap."
+  },
+  {
+    "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6163.jpg",
+    "people": [
+      "event guests"
+    ],
+    "objects": [
+      "decor",
+      "venue",
+      "celebration details"
+    ],
+    "scene": "Event photograph 6163",
+    "emotion": "warm and celebratory",
+    "quality": "high",
+    "blur_score": 242.68247985839844,
+    "brightness": 130.67700892857144,
+    "composition": "balanced event composition with useful subject framing",
+    "relevance_score": 8.0,
+    "llm_summary": "AHD_6163.jpg contributes a polished moment to the event recap."
+  }
+]
