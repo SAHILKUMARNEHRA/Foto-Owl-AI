@@ -432,6 +432,32 @@ pre {
   background: linear-gradient(135deg, #e9f3ff, #ffffff);
 }
 
+.video-card {
+  grid-column: 1 / -1;
+  align-items: flex-start;
+}
+
+.video-card video {
+  width: min(420px, 100%);
+  border: 1px solid rgba(31, 111, 255, 0.12);
+  border-radius: 16px;
+  background: #dceaff;
+  box-shadow: 0 16px 34px rgba(31, 111, 255, 0.12);
+}
+
+.text-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--blue-dark);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
 .artifact-icon {
   display: grid;
   width: 38px;

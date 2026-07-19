@@ -12,17 +12,9 @@
     {
       "src": "frontend/web/styles.css",
       "use": "@vercel/static"
-    },
-    {
-      "src": "frontend/web/sample_output/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/sample_output/(.*)",
-      "dest": "/frontend/web/sample_output/$1"
-    },
     {
       "src": "/app.js",
       "dest": "/frontend/web/app.js"

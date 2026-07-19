@@ -5,8 +5,10 @@ from pathlib import Path
 
 
 class RemotionRenderer:
-    def __init__(self, frontend_dir: Path) -> None:
+    def __init__(self, frontend_dir: Path, codec: str = "h264", crf: int = 28) -> None:
         self._frontend_dir = frontend_dir
+        self._codec = codec
+        self._crf = crf
 
     def render(self, output_path: Path) -> str:
         completed = subprocess.run(
@@ -19,6 +21,10 @@ class RemotionRenderer:
                 str(output_path),
                 "--config",
                 "remotion.config.ts",
+                "--codec",
+                self._codec,
+                "--crf",
+                str(self._crf),
             ],
             cwd=self._frontend_dir,
             capture_output=True,

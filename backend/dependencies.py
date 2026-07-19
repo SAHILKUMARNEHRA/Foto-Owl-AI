@@ -67,7 +67,11 @@ def build_container(settings: Settings) -> Container:
     seed_vector_store(settings=settings, vector_store=vector_store)
     retriever = RagRetriever(vector_store=vector_store)
     compiler = RemotionCompiler(frontend_dir=settings.frontend_dir)
-    renderer_service = RemotionRenderer(frontend_dir=settings.frontend_dir)
+    renderer_service = RemotionRenderer(
+        frontend_dir=settings.frontend_dir,
+        codec=settings.render_codec,
+        crf=settings.render_crf,
+    )
 
     return Container(
         intent_parser=IntentParserAgent(model_client=text_client),

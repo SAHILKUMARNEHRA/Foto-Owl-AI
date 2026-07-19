@@ -45,7 +45,7 @@ class Settings(BaseSettings):
     default_fps: int = 30
     default_scene_duration_seconds: float = 3.0
     render_codec: str = "h264"
-    render_crf: int = 20
+    render_crf: int = 28
     log_level: str = "INFO"
 
 

@@ -25,23 +25,23 @@
             generate Remotion code, and produce a polished MP4.
           </p>
           <div class="hero-actions">
-            <a class="ghost-link" href="/sample_output/final_video_preview.mp4" target="_blank" rel="noreferrer">Watch fast demo preview</a>
-            <span>Gemini + LangGraph + Remotion</span>
+            <a class="ghost-link" href="#runner">Generate real video</a>
+            <span>Live Gemini + LangGraph + Remotion pipeline</span>
           </div>
         </div>
         <aside class="hero-card" aria-label="Pipeline highlights">
           <div class="orb"></div>
-          <p class="eyebrow">Ready output</p>
-          <h2>Built for quick review</h2>
+          <p class="eyebrow">Live pipeline</p>
+          <h2>No hardcoded demo response</h2>
           <div class="mini-stats">
-            <span><strong>8</strong> sample photos</span>
-            <span><strong>6</strong> artifacts</span>
-            <span><strong>MP4</strong> render</span>
+            <span><strong>Real</strong> API result</span>
+            <span><strong>Fast</strong> optimized upload</span>
+            <span><strong>MP4</strong> streamed preview</span>
           </div>
         </aside>
       </section>
 
-      <section class="workspace">
+      <section id="runner" class="workspace">
         <section class="panel run-panel">
           <div class="section-heading">
             <p class="eyebrow">Creative brief</p>
@@ -58,7 +58,7 @@
           </div>
 
           <div class="actions">
-            <button id="runSample" class="secondary-button" type="button">Preview Sample Output</button>
+            <button id="runSample" class="secondary-button" type="button">Run Real Sample API</button>
             <button id="runUpload" class="primary-button" type="button">Generate From Uploads</button>
           </div>
         </section>
@@ -71,7 +71,7 @@
             </div>
             <span id="statusBadge" class="badge idle">Idle</span>
           </div>
-          <pre id="statusOutput">Ready. Preview the bundled sample instantly, or upload images to call the Render backend.</pre>
+          <pre id="statusOutput">Ready. Run the real sample API or upload images to call the Render backend. Every result shown here comes from the API response.</pre>
         </section>
       </section>
 
@@ -80,7 +80,7 @@
           <p class="eyebrow">Outputs</p>
           <h2>Artifacts</h2>
         </div>
-        <div id="artifacts" class="artifacts empty">Preview the sample or generate from uploads to see the final video and JSON artifacts.</div>
+        <div id="artifacts" class="artifacts empty">Run the backend to see real generated video and JSON artifacts.</div>
       </section>
     </main>
 

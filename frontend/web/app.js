@@ -11,20 +11,11 @@ const PRODUCTION_API_BASE = "https://foto-owl-ai.onrender.com";
 const LOCAL_API_BASE = "http://localhost:8000";
 const isLocalFrontend = ["localhost", "127.0.0.1"].includes(window.location.hostname);
 const DEFAULT_API_BASE = isLocalFrontend ? LOCAL_API_BASE : PRODUCTION_API_BASE;
-
-const SAMPLE_ARTIFACTS = {
-  final_video: "/sample_output/final_video_preview.mp4",
-  full_resolution_video: "/sample_output/final_video.mp4",
-  storyboard: "/sample_output/storyboard.json",
-  video_intent: "/sample_output/video_intent.json",
-  image_analysis: "/sample_output/analysis.json",
-  remotion_script: "/sample_output/generated_script.tsx",
-  pipeline_trace: "/sample_output/pipeline_state.json",
-};
+const MAX_UPLOAD_EDGE = 1600;
+const JPEG_QUALITY = 0.82;
 
 const ARTIFACT_LABELS = {
-  final_video: "Fast MP4 Preview",
-  full_resolution_video: "Full Quality MP4",
+  final_video: "Final MP4 Video",
   storyboard: "Storyboard JSON",
   video_intent: "Video Intent JSON",
   image_analysis: "Image Analysis JSON",
@@ -49,10 +40,55 @@ const setButtonsDisabled = (isDisabled) => {
 const getApiBase = () => DEFAULT_API_BASE.replace(/\/+$/, "");
 
 const toAbsoluteArtifactUrl = (apiBase, artifactUrl) => {
-  if (artifactUrl.startsWith("http") || artifactUrl.startsWith("/sample_output")) {
+  if (artifactUrl.startsWith("http")) {
     return artifactUrl;
   }
   return `${apiBase}${artifactUrl}`;
+};
+
+const formatBytes = (bytes) => {
+  if (bytes < 1024 * 1024) {
+    return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  }
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+};
+
+const optimizeImage = async (file) => {
+  if (!file.type.startsWith("image/")) {
+    return file;
+  }
+
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, MAX_UPLOAD_EDGE / Math.max(bitmap.width, bitmap.height));
+  if (scale === 1 && file.size < 1_500_000) {
+    bitmap.close();
+    return file;
+  }
+
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(bitmap.width * scale);
+  canvas.height = Math.round(bitmap.height * scale);
+  const context = canvas.getContext("2d", {alpha: false});
+  context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  bitmap.close();
+
+  const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", JPEG_QUALITY));
+  if (!blob || blob.size >= file.size) {
+    return file;
+  }
+
+  const basename = file.name.replace(/\.[^.]+$/, "");
+  return new File([blob], `${basename}.jpg`, {type: "image/jpeg", lastModified: Date.now()});
+};
+
+const optimizeUploads = async (files) => {
+  const originalSize = files.reduce((sum, file) => sum + file.size, 0);
+  const optimizedFiles = [];
+  for (const file of files) {
+    optimizedFiles.push(await optimizeImage(file));
+  }
+  const optimizedSize = optimizedFiles.reduce((sum, file) => sum + file.size, 0);
+  return {optimizedFiles, originalSize, optimizedSize};
 };
 
 const renderArtifacts = (apiBase, artifacts, source = "Live pipeline output") => {
@@ -68,34 +104,30 @@ const renderArtifacts = (apiBase, artifacts, source = "Live pipeline output") =>
     .map(([name, artifactUrl]) => {
       const url = toAbsoluteArtifactUrl(apiBase, artifactUrl);
       const label = ARTIFACT_LABELS[name] || name.replaceAll("_", " ");
-      const isVideo = name === "final_video" || name === "full_resolution_video";
-      const sourceText = name === "final_video" ? "1.1MB fast web preview" : source;
+      const isVideo = name === "final_video";
+      if (isVideo) {
+        return `
+          <article class="artifact-link video-artifact video-card">
+            <video controls preload="metadata" playsinline src="${url}"></video>
+            <span>
+              <strong>${label}</strong>
+              <small>${source}. Streaming preview only; it will not auto-download.</small>
+              <a class="text-link" href="${url}" target="_blank" rel="noreferrer">Open video in new tab</a>
+            </span>
+          </article>
+        `;
+      }
       return `
-        <a class="artifact-link ${isVideo ? "video-artifact" : ""}" href="${url}" target="_blank" rel="noreferrer">
-          <span class="artifact-icon">${isVideo ? "▶" : "↗"}</span>
+        <a class="artifact-link" href="${url}" target="_blank" rel="noreferrer">
+          <span class="artifact-icon">↗</span>
           <span>
             <strong>${label}</strong>
-            <small>${sourceText}</small>
+            <small>${source}</small>
           </span>
         </a>
       `;
     })
     .join("");
-};
-
-const renderStaticSample = (reason) => {
-  const detail = JSON.stringify(
-    {
-      status: "demo_ready",
-      note: reason,
-      output: "Bundled successful assignment sample loaded from Vercel static files.",
-      next_step: "Use the artifact links below for your deployed submission demo.",
-    },
-    null,
-    2,
-  );
-  setStatus("Demo Ready", "success", detail);
-  renderArtifacts("", SAMPLE_ARTIFACTS, "Bundled sample output");
 };
 
 const parseJsonResponse = async (response) => {
@@ -112,13 +144,14 @@ const runRequest = async (requestFactory) => {
   const prompt = promptInput.value.trim();
   if (!prompt) {
     setStatus("Add Prompt", "error", "Enter a creative prompt before running the pipeline.");
+    setButtonsDisabled(false);
     return;
   }
 
   setButtonsDisabled(true);
-  setStatus("Running", "running", "Calling the backend. If Render is cold or busy, the app will show the bundled working sample instead.");
+  setStatus("Running", "running", "Calling the real backend. This may take time while Gemini analyzes images and Remotion renders the MP4.");
   artifactsContainer.className = "artifacts empty";
-  artifactsContainer.textContent = "Generating artifacts...";
+  artifactsContainer.textContent = "Generating live artifacts from the backend...";
 
   try {
     const response = await requestFactory(apiBase, prompt);
@@ -141,28 +174,51 @@ const runRequest = async (requestFactory) => {
     setStatus(payload.status === "completed" ? "Completed" : "Finished", payload.status === "completed" ? "success" : "error", detail);
     renderArtifacts(apiBase, payload.artifacts, "Live Render output");
   } catch (error) {
-    renderStaticSample(error instanceof Error ? `Live backend fallback: ${error.message}` : "Live backend fallback: unexpected network error.");
+    setStatus("Backend Error", "error", error instanceof Error ? error.message : "Unexpected backend error.");
+    artifactsContainer.className = "artifacts empty";
+    artifactsContainer.textContent = "No demo fallback was used. Fix the backend error above and run again.";
   } finally {
     setButtonsDisabled(false);
   }
 };
 
 runSampleButton.addEventListener("click", () => {
-  renderStaticSample("Instant sample preview selected. This avoids Render cold-start delays during review.");
+  runRequest((apiBase, prompt) =>
+    fetch(`${apiBase}/run-sample`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({prompt}),
+    }),
+  );
 });
 
-runUploadButton.addEventListener("click", () => {
+runUploadButton.addEventListener("click", async () => {
   if (!filesInput.files || filesInput.files.length === 0) {
     setStatus("Add Photos", "error", "Select at least one image before running an uploaded job.");
     return;
   }
 
+  const selectedFiles = Array.from(filesInput.files);
+  setButtonsDisabled(true);
+  setStatus("Optimizing", "running", `Compressing ${selectedFiles.length} image(s) before upload so Render receives a faster request.`);
+  let uploadBatch;
+  try {
+    uploadBatch = await optimizeUploads(selectedFiles);
+  } catch {
+    uploadBatch = {optimizedFiles: selectedFiles, originalSize: 0, optimizedSize: 0};
+  }
+
   runRequest((apiBase, prompt) => {
     const formData = new FormData();
     formData.append("prompt", prompt);
-    for (const file of filesInput.files) {
+    for (const file of uploadBatch.optimizedFiles) {
       formData.append("files", file);
     }
+    const savedText =
+      uploadBatch.originalSize > 0
+        ? ` Optimized upload from ${formatBytes(uploadBatch.originalSize)} to ${formatBytes(uploadBatch.optimizedSize)}.`
+        : "";
+    setStatus("Uploading", "running", `Sending optimized images to the real backend.${savedText}`);
     return fetch(`${apiBase}/run-upload`, {
       method: "POST",
       body: formData,

@@ -13,5 +13,9 @@ services:
         value: gemini-2.0-flash-lite
       - key: VISION_MODEL
         value: gemini-2.0-flash
+      - key: DEFAULT_FPS
+        value: "24"
+      - key: RENDER_CRF
+        value: "28"
       - key: GEMINI_API_KEY
         sync: false
