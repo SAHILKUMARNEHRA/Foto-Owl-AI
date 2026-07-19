@@ -1,17 +1,31 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/",
-      "destination": "/frontend/web/index.html"
+      "src": "frontend/web/index.html",
+      "use": "@vercel/static"
     },
     {
-      "source": "/app.js",
-      "destination": "/frontend/web/app.js"
+      "src": "frontend/web/app.js",
+      "use": "@vercel/static"
     },
     {
-      "source": "/styles.css",
-      "destination": "/frontend/web/styles.css"
+      "src": "frontend/web/styles.css",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/app.js",
+      "dest": "/frontend/web/app.js"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "/frontend/web/styles.css"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/web/index.html"
     }
   ]
 }
