@@ -7,7 +7,10 @@ const artifactsContainer = document.querySelector("#artifacts");
 const runSampleButton = document.querySelector("#runSample");
 const runUploadButton = document.querySelector("#runUpload");
 
-const DEFAULT_API_BASE = localStorage.getItem("fotoOwlApiBase") || "http://localhost:8000";
+const PRODUCTION_API_BASE = "https://foto-owl-ai.onrender.com";
+const LOCAL_API_BASE = "http://localhost:8000";
+const isLocalFrontend = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+const DEFAULT_API_BASE = localStorage.getItem("fotoOwlApiBase") || (isLocalFrontend ? LOCAL_API_BASE : PRODUCTION_API_BASE);
 apiBaseInput.value = DEFAULT_API_BASE;
 
 const setStatus = (label, tone, detail) => {
