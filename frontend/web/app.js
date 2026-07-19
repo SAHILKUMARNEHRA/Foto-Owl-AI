@@ -13,7 +13,8 @@ const isLocalFrontend = ["localhost", "127.0.0.1"].includes(window.location.host
 const DEFAULT_API_BASE = isLocalFrontend ? LOCAL_API_BASE : PRODUCTION_API_BASE;
 
 const SAMPLE_ARTIFACTS = {
-  final_video: "/sample_output/final_video.mp4",
+  final_video: "/sample_output/final_video_preview.mp4",
+  full_resolution_video: "/sample_output/final_video.mp4",
   storyboard: "/sample_output/storyboard.json",
   video_intent: "/sample_output/video_intent.json",
   image_analysis: "/sample_output/analysis.json",
@@ -22,7 +23,8 @@ const SAMPLE_ARTIFACTS = {
 };
 
 const ARTIFACT_LABELS = {
-  final_video: "Final MP4 Video",
+  final_video: "Fast MP4 Preview",
+  full_resolution_video: "Full Quality MP4",
   storyboard: "Storyboard JSON",
   video_intent: "Video Intent JSON",
   image_analysis: "Image Analysis JSON",
@@ -66,13 +68,14 @@ const renderArtifacts = (apiBase, artifacts, source = "Live pipeline output") =>
     .map(([name, artifactUrl]) => {
       const url = toAbsoluteArtifactUrl(apiBase, artifactUrl);
       const label = ARTIFACT_LABELS[name] || name.replaceAll("_", " ");
-      const isVideo = name === "final_video";
+      const isVideo = name === "final_video" || name === "full_resolution_video";
+      const sourceText = name === "final_video" ? "1.1MB fast web preview" : source;
       return `
         <a class="artifact-link ${isVideo ? "video-artifact" : ""}" href="${url}" target="_blank" rel="noreferrer">
           <span class="artifact-icon">${isVideo ? "▶" : "↗"}</span>
           <span>
             <strong>${label}</strong>
-            <small>${source}</small>
+            <small>${sourceText}</small>
           </span>
         </a>
       `;
