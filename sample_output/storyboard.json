@@ -1,0 +1,87 @@
+{
+  "title": "Cinematic Event Memories",
+  "total_duration": 24.0,
+  "scenes": [
+    {
+      "scene_index": 0,
+      "start_time": 0.0,
+      "duration": 3.0,
+      "caption": "The day opens with quiet anticipation.",
+      "transition": "Fade",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6052.jpg",
+      "animation": "Gentle Zoom In",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 1,
+      "start_time": 3.0,
+      "duration": 3.0,
+      "caption": "Warm smiles gather into a shared story.",
+      "transition": "Cross Dissolve",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6024.jpg",
+      "animation": "Slow Pan",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 2,
+      "start_time": 6.0,
+      "duration": 3.0,
+      "caption": "Details and faces become lasting memories.",
+      "transition": "Fade",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6163.jpg",
+      "animation": "Gentle Zoom In",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 3,
+      "start_time": 9.0,
+      "duration": 3.0,
+      "caption": "The celebration settles into a graceful finale.",
+      "transition": "Cross Dissolve",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6020.jpg",
+      "animation": "Slow Pan",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 4,
+      "start_time": 12.0,
+      "duration": 3.0,
+      "caption": "The day opens with quiet anticipation.",
+      "transition": "Fade",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6142.jpg",
+      "animation": "Gentle Zoom In",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 5,
+      "start_time": 15.0,
+      "duration": 3.0,
+      "caption": "Warm smiles gather into a shared story.",
+      "transition": "Cross Dissolve",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6106.jpg",
+      "animation": "Slow Pan",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 6,
+      "start_time": 18.0,
+      "duration": 3.0,
+      "caption": "Details and faces become lasting memories.",
+      "transition": "Fade",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6157.jpg",
+      "animation": "Gentle Zoom In",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    },
+    {
+      "scene_index": 7,
+      "start_time": 21.0,
+      "duration": 3.0,
+      "caption": "The celebration settles into a graceful finale.",
+      "transition": "Cross Dissolve",
+      "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6008.jpg",
+      "animation": "Slow Pan",
+      "reason": "Selected for its warm and celebratory mood and narrative relevance."
+    }
+  ],
+  "creative_rationale": "A warm, emotional sequence that moves from anticipation to celebration and closes with a reflective finish."
+}

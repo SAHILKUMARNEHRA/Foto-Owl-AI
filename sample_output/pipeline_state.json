@@ -1,0 +1,408 @@
+{
+  "input_dir": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset",
+  "prompt": "Create a cinematic wedding event recap, slow and emotional, warm tones, minimal elegant captions, and smooth fades.",
+  "images": [
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6008.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6020.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6024.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6052.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6065.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6076.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6106.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6142.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6148.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6157.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6160.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6163.jpg"
+  ],
+  "selected_images": [
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6052.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6024.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6163.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6020.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6142.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6106.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6157.jpg",
+    "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6008.jpg"
+  ],
+  "image_analysis": [
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6008.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6008",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 237.41844177246094,
+      "brightness": 116.8353519955654,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6008.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6020.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6020",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 287.8303527832031,
+      "brightness": 135.68700296464206,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6020.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6024.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6024",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 274.624267578125,
+      "brightness": 133.34940601985667,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6024.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6052.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6052",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 305.83758544921875,
+      "brightness": 131.0614934941202,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6052.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6065.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6065",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 164.8910675048828,
+      "brightness": 152.41523078674373,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6065.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6076.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6076",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 219.4197540283203,
+      "brightness": 114.33132584831327,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6076.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6106.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6106",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 291.5453186035156,
+      "brightness": 114.01647210216468,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6106.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6142.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6142",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 267.4762878417969,
+      "brightness": 138.20048348659725,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6142.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6148.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6148",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 130.6464385986328,
+      "brightness": 132.42671444409248,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6148.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6157.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6157",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 197.46009826660156,
+      "brightness": 121.96909905072062,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6157.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6160.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6160",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 70.29481506347656,
+      "brightness": 105.61315547543158,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6160.jpg contributes a polished moment to the event recap."
+    },
+    {
+      "image_path": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6163.jpg",
+      "people": [
+        "event guests"
+      ],
+      "objects": [
+        "decor",
+        "venue",
+        "celebration details"
+      ],
+      "scene": "Event photograph 6163",
+      "emotion": "warm and celebratory",
+      "quality": "high",
+      "blur_score": 242.68247985839844,
+      "brightness": 130.67700892857144,
+      "composition": "balanced event composition with useful subject framing",
+      "relevance_score": 8.0,
+      "llm_summary": "AHD_6163.jpg contributes a polished moment to the event recap."
+    }
+  ],
+  "video_intent": {
+    "video_style": "cinematic event reel",
+    "caption_tone": "minimal and emotional",
+    "pacing": "measured and slow",
+    "transition_style": "smooth fades",
+    "text_overlay": "minimal lower-third captions",
+    "animation_style": "gentle zoom and slow pan",
+    "music_mood": "warm and reflective",
+    "color_palette": "warm golden tones"
+  },
+  "storyboard": {
+    "title": "Cinematic Event Memories",
+    "total_duration": 24.0,
+    "scenes": [
+      {
+        "scene_index": 0,
+        "start_time": 0.0,
+        "duration": 3.0,
+        "caption": "The day opens with quiet anticipation.",
+        "transition": "Fade",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6052.jpg",
+        "animation": "Gentle Zoom In",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 1,
+        "start_time": 3.0,
+        "duration": 3.0,
+        "caption": "Warm smiles gather into a shared story.",
+        "transition": "Cross Dissolve",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6024.jpg",
+        "animation": "Slow Pan",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 2,
+        "start_time": 6.0,
+        "duration": 3.0,
+        "caption": "Details and faces become lasting memories.",
+        "transition": "Fade",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6163.jpg",
+        "animation": "Gentle Zoom In",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 3,
+        "start_time": 9.0,
+        "duration": 3.0,
+        "caption": "The celebration settles into a graceful finale.",
+        "transition": "Cross Dissolve",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6020.jpg",
+        "animation": "Slow Pan",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 4,
+        "start_time": 12.0,
+        "duration": 3.0,
+        "caption": "The day opens with quiet anticipation.",
+        "transition": "Fade",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6142.jpg",
+        "animation": "Gentle Zoom In",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 5,
+        "start_time": 15.0,
+        "duration": 3.0,
+        "caption": "Warm smiles gather into a shared story.",
+        "transition": "Cross Dissolve",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6106.jpg",
+        "animation": "Slow Pan",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 6,
+        "start_time": 18.0,
+        "duration": 3.0,
+        "caption": "Details and faces become lasting memories.",
+        "transition": "Fade",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6157.jpg",
+        "animation": "Gentle Zoom In",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      },
+      {
+        "scene_index": 7,
+        "start_time": 21.0,
+        "duration": 3.0,
+        "caption": "The celebration settles into a graceful finale.",
+        "transition": "Cross Dissolve",
+        "image": "/Users/sahilkumar/Documents/foto-owl_assignment/provided_images_subset/AHD_6008.jpg",
+        "animation": "Slow Pan",
+        "reason": "Selected for its warm and celebratory mood and narrative relevance."
+      }
+    ],
+    "creative_rationale": "A warm, emotional sequence that moves from anticipation to celebration and closes with a reflective finish."
+  },
+  "script": "import React from \"react\";\nimport {\n  AbsoluteFill,\n  Img,\n  Sequence,\n  interpolate,\n  spring,\n  staticFile,\n  useCurrentFrame,\n  useVideoConfig,\n} from \"remotion\";\n\ntype Scene = {\n  startFrame: number;\n  durationInFrames: number;\n  caption: string;\n  transition: string;\n  image: string;\n  animation: string;\n  reason: string;\n};\n\nconst scenes: Scene[] = [\n  {\n    \"startFrame\": 0,\n    \"durationInFrames\": 90,\n    \"caption\": \"The day opens with quiet anticipation.\",\n    \"transition\": \"Fade\",\n    \"image\": \"generated_assets/scene_00.jpg\",\n    \"animation\": \"Gentle Zoom In\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 90,\n    \"durationInFrames\": 90,\n    \"caption\": \"Warm smiles gather into a shared story.\",\n    \"transition\": \"Cross Dissolve\",\n    \"image\": \"generated_assets/scene_01.jpg\",\n    \"animation\": \"Slow Pan\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 180,\n    \"durationInFrames\": 90,\n    \"caption\": \"Details and faces become lasting memories.\",\n    \"transition\": \"Fade\",\n    \"image\": \"generated_assets/scene_02.jpg\",\n    \"animation\": \"Gentle Zoom In\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 270,\n    \"durationInFrames\": 90,\n    \"caption\": \"The celebration settles into a graceful finale.\",\n    \"transition\": \"Cross Dissolve\",\n    \"image\": \"generated_assets/scene_03.jpg\",\n    \"animation\": \"Slow Pan\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 360,\n    \"durationInFrames\": 90,\n    \"caption\": \"The day opens with quiet anticipation.\",\n    \"transition\": \"Fade\",\n    \"image\": \"generated_assets/scene_04.jpg\",\n    \"animation\": \"Gentle Zoom In\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 450,\n    \"durationInFrames\": 90,\n    \"caption\": \"Warm smiles gather into a shared story.\",\n    \"transition\": \"Cross Dissolve\",\n    \"image\": \"generated_assets/scene_05.jpg\",\n    \"animation\": \"Slow Pan\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 540,\n    \"durationInFrames\": 90,\n    \"caption\": \"Details and faces become lasting memories.\",\n    \"transition\": \"Fade\",\n    \"image\": \"generated_assets/scene_06.jpg\",\n    \"animation\": \"Gentle Zoom In\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  },\n  {\n    \"startFrame\": 630,\n    \"durationInFrames\": 90,\n    \"caption\": \"The celebration settles into a graceful finale.\",\n    \"transition\": \"Cross Dissolve\",\n    \"image\": \"generated_assets/scene_07.jpg\",\n    \"animation\": \"Slow Pan\",\n    \"reason\": \"Selected for its warm and celebratory mood and narrative relevance.\"\n  }\n];\n\nexport const VIDEO_FPS = 30;\nexport const VIDEO_WIDTH = 1920;\nexport const VIDEO_HEIGHT = 1080;\nexport const VIDEO_DURATION_IN_FRAMES = 720;\nconst TRANSITION_FRAMES = 24;\nconst OVERLAY_OPACITY = 0.22;\nconst CAPTION_FONT_SCALE = 1.0;\nconst GRADIENT_STRENGTH = 0.34;\nconst TITLE_TREATMENT = \"Elegant cinematic title treatment\";\nconst MOTION_BIAS = \"gentle\";\nconst COLOR_PALETTE = \"warm golden tones\";\n\nconst sceneTransform = (frame: number, durationInFrames: number, animation: string): string => {\n  const entrance = spring({frame, fps: VIDEO_FPS, config: {damping: 16}});\n  const exitStart = Math.max(durationInFrames - TRANSITION_FRAMES, 1);\n  const drift = interpolate(frame, [0, durationInFrames], [0, animation.includes(\"left\") ? -40 : 40], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n  });\n  const scaleStart = animation.toLowerCase().includes(\"zoom out\") ? 1.12 : 1.02;\n  const scaleEnd = animation.toLowerCase().includes(\"zoom out\") ? 1.0 : 1.12;\n  const scale = interpolate(frame, [0, durationInFrames], [scaleStart, scaleEnd], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n  });\n  const opacity = interpolate(frame, [0, TRANSITION_FRAMES, exitStart, durationInFrames], [0, 1, 1, 0], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n  });\n  return `translate3d(${drift}px, 0, 0) scale(${scale * Math.max(entrance, 0.85)})`;\n};\n\nconst CaptionBlock: React.FC<{caption: string; frame: number; durationInFrames: number}> = ({\n  caption,\n  frame,\n  durationInFrames,\n}) => {\n  const opacity = interpolate(frame, [0, 8, durationInFrames - 8, durationInFrames], [0, 1, 1, 0], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n  });\n  const translateY = interpolate(frame, [0, 15], [20, 0], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n  });\n  return (\n    <div\n      style={{\n        position: \"absolute\",\n        left: 96,\n        right: 96,\n        bottom: 84,\n        opacity,\n        transform: `translateY(${translateY}px)`,\n      }}\n    >\n      <div\n        style={{\n          maxWidth: 1240,\n          padding: \"22px 28px\",\n          borderRadius: 24,\n          backgroundColor: `rgba(0, 0, 0, ${OVERLAY_OPACITY})`,\n          backdropFilter: \"blur(18px)\",\n          color: \"white\",\n          fontFamily: \"Inter, ui-sans-serif, system-ui, sans-serif\",\n          fontSize: 42 * CAPTION_FONT_SCALE,\n          fontWeight: 600,\n          lineHeight: 1.18,\n          letterSpacing: -0.8,\n          boxShadow: \"0 18px 50px rgba(0, 0, 0, 0.25)\",\n        }}\n      >\n        {caption}\n      </div>\n    </div>\n  );\n};\n\nconst SceneView: React.FC<{scene: Scene}> = ({scene}) => {\n  const frame = useCurrentFrame();\n  const opacity = interpolate(frame, [0, TRANSITION_FRAMES, scene.durationInFrames], [0, 1, 1], {\n    extrapolateLeft: \"clamp\",\n    extrapolateRight: \"clamp\",\n  });\n\n  return (\n    <AbsoluteFill style={{ opacity }}>\n      <Img\n        src={staticFile(scene.image)}\n        style={{\n          width: \"100%\",\n          height: \"100%\",\n          objectFit: \"cover\",\n          transform: sceneTransform(frame, scene.durationInFrames, scene.animation + MOTION_BIAS),\n        }}\n      />\n      <AbsoluteFill\n        style={{ background: `linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, ${GRADIENT_STRENGTH }}))`,\n        }}\n      />\n      <AbsoluteFill\n        style={{\n          justifyContent: \"space-between\",\n          padding: \"64px 72px\",\n          color: \"white\",\n          fontFamily: \"Inter, ui-sans-serif, system-ui, sans-serif\",\n        }}\n      >\n        <div\n          style={{\n            display: \"inline-flex\",\n            alignSelf: \"flex-start\",\n            padding: \"12px 18px\",\n            borderRadius: 9999,\n            backgroundColor: \"rgba(255, 255, 255, 0.12)\",\n            fontSize: 24,\n            fontWeight: 500,\n            textTransform: \"uppercase\",\n            letterSpacing: 1.4,\n          }}\n        >\n          {TITLE_TREATMENT} | {COLOR_PALETTE}\n        </div>\n        <CaptionBlock caption={scene.caption} frame={frame} durationInFrames={scene.durationInFrames} />\n      </AbsoluteFill>\n    </AbsoluteFill>\n  );\n};\n\nconst GeneratedVideo: React.FC = () => {\n  const {fps} = useVideoConfig();\n\n  return (\n    <AbsoluteFill style={{ backgroundColor: \"#050505\" }}>\n      {scenes.map((scene) => (\n        <Sequence key={`${scene.startFrame}-${scene.image}`} from={scene.startFrame} durationInFrames={scene.durationInFrames}>\n          <SceneView scene={scene} />\n        </Sequence>\n      ))}\n      <AbsoluteFill\n        style={{\n          justifyContent: \"flex-end\",\n          padding: 32,\n          color: \"rgba(255, 255, 255, 0.55)\",\n          fontFamily: \"Inter, ui-sans-serif, system-ui, sans-serif\",\n          fontSize: 18,\n        }}\n      >\n        <div>Rendered at {fps} fps</div>\n      </AbsoluteFill>\n    </AbsoluteFill>\n  );\n};\n\nexport default GeneratedVideo;\n",
+  "compile_errors": [
+    {
+      "success": true,
+      "stdout": "\n> foto-owl-remotion@1.0.0 typecheck\n> tsc --noEmit\n\n",
+      "stderr": "",
+      "exit_code": 0,
+      "issues": []
+    }
+  ],
+  "retry_count": 0,
+  "render_status": "completed",
+  "final_video_path": "/Users/sahilkumar/Documents/foto-owl_assignment/outputs/final_video.mp4",
+  "pipeline_logs": [
+    "intent_parser",
+    "image_analyzer",
+    "storyboard_writer",
+    "script_generator",
+    "compiler",
+    "renderer"
+  ],
+  "timestamps": [
+    {
+      "stage": "started",
+      "timestamp": "2026-07-19T13:02:31.283146Z"
+    },
+    {
+      "stage": "intent_parser",
+      "timestamp": "2026-07-19T13:02:31.338319Z"
+    },
+    {
+      "stage": "image_analyzer",
+      "timestamp": "2026-07-19T13:02:33.766352Z"
+    },
+    {
+      "stage": "storyboard_writer",
+      "timestamp": "2026-07-19T13:02:33.965478Z"
+    },
+    {
+      "stage": "script_generator",
+      "timestamp": "2026-07-19T13:02:34.135188Z"
+    },
+    {
+      "stage": "compiler",
+      "timestamp": "2026-07-19T13:02:35.525351Z"
+    },
+    {
+      "stage": "renderer",
+      "timestamp": "2026-07-19T13:03:42.305894Z"
+    }
+  ],
+  "failure_reason": null,
+  "metadata": {}
+}

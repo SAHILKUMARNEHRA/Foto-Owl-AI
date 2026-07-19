@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FotoOwl Pipeline Runner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">FotoOwl Assignment Runner</p>
+        <h1>Run the image-to-video pipeline locally or against Render</h1>
+        <p class="subcopy">
+          Upload event photos, enter a creative brief, and fetch the generated storyboard, Remotion script,
+          pipeline trace, and final MP4.
+        </p>
+      </section>
+
+      <section class="panel">
+        <label for="apiBase">Backend API Base URL</label>
+        <input id="apiBase" type="url" placeholder="http://localhost:8000" />
+
+        <label for="prompt">Creative Prompt</label>
+        <textarea id="prompt" rows="5" placeholder="Create a cinematic event recap with elegant captions and warm tones."></textarea>
+
+        <label for="files">Upload Images</label>
+        <input id="files" type="file" accept=".jpg,.jpeg,.png,.webp" multiple />
+
+        <div class="actions">
+          <button id="runSample" type="button">Run Sample Images</button>
+          <button id="runUpload" type="button">Run Uploaded Images</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="status-row">
+          <h2>Run Status</h2>
+          <span id="statusBadge" class="badge idle">Idle</span>
+        </div>
+        <pre id="statusOutput">Waiting for a run.</pre>
+      </section>
+
+      <section class="panel">
+        <h2>Artifacts</h2>
+        <div id="artifacts" class="artifacts empty">No artifacts yet.</div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

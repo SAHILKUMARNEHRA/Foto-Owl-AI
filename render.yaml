@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: foto-owl-pipeline-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    autoDeploy: false
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: MODEL_PROVIDER
+        value: gemini
+      - key: TEXT_MODEL
+        value: gemini-2.0-flash-lite
+      - key: VISION_MODEL
+        value: gemini-2.0-flash
+      - key: GEMINI_API_KEY
+        sync: false

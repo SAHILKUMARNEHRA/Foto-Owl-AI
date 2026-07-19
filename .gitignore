@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.env
+.chromadb/
+provided_images/
+outputs/*.mp4
+outputs/*.json
+outputs/*.txt
+outputs/runs/
+frontend/remotion/node_modules/

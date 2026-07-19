@@ -1,0 +1,22 @@
+{
+  "name": "foto-owl-remotion",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts FotoOwlGenerated ../../outputs/final_video.mp4 --config remotion.config.ts",
+    "studio": "remotion studio src/index.ts --config remotion.config.ts"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.273"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.273",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "typescript": "5.5.4"
+  }
+}
