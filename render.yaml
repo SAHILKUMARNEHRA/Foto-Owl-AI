@@ -25,3 +25,5 @@ services:
         value: "28"
       - key: GEMINI_API_KEY
         sync: false
+      - key: USE_VECTOR_STORE
+        value: "false"

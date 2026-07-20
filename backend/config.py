@@ -25,6 +25,7 @@ class Settings(BaseSettings):
     vector_store_dir: Path = Field(
         default_factory=lambda: Path(__file__).resolve().parent.parent / ".chromadb"
     )
+    use_vector_store: bool = False
 
     llm_provider: str = Field(
         default="gemini",

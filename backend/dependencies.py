@@ -10,10 +10,7 @@ from backend.agents.script_generator import ScriptGeneratorAgent
 from backend.agents.storyboard_writer import StoryboardWriterAgent
 from backend.compiler.compile import RemotionCompiler
 from backend.config import Settings
-from backend.rag.embeddings import LocalEmbeddingFunction
-from backend.rag.retriever import RagRetriever
-from backend.rag.seed import seed_vector_store
-from backend.rag.vector_store import ChromaVectorStore
+from backend.rag.retriever import FileRetriever
 from backend.renderer.render import RemotionRenderer
 from backend.utils.ollama import (
     GeminiTextClient,
@@ -59,13 +56,21 @@ def build_container(settings: Settings) -> Container:
         vision_client = OfflineVisionClient()
     else:
         raise ValueError(f"Unsupported MODEL_PROVIDER: {settings.llm_provider}")
-    embedding_function = LocalEmbeddingFunction(model_name=settings.embedding_model)
-    vector_store = ChromaVectorStore(
-        persist_directory=settings.vector_store_dir,
-        embedding_function=embedding_function,
-    )
-    seed_vector_store(settings=settings, vector_store=vector_store)
-    retriever = RagRetriever(vector_store=vector_store)
+    if settings.use_vector_store:
+        from backend.rag.embeddings import LocalEmbeddingFunction
+        from backend.rag.retriever import RagRetriever
+        from backend.rag.seed import seed_vector_store
+        from backend.rag.vector_store import ChromaVectorStore
+
+        embedding_function = LocalEmbeddingFunction(model_name=settings.embedding_model)
+        vector_store = ChromaVectorStore(
+            persist_directory=settings.vector_store_dir,
+            embedding_function=embedding_function,
+        )
+        seed_vector_store(settings=settings, vector_store=vector_store)
+        retriever = RagRetriever(vector_store=vector_store)
+    else:
+        retriever = FileRetriever(docs_dir=settings.docs_dir)
     compiler = RemotionCompiler(frontend_dir=settings.frontend_dir)
     renderer_service = RemotionRenderer(
         frontend_dir=settings.frontend_dir,
