@@ -26,6 +26,7 @@ class Settings(BaseSettings):
         default_factory=lambda: Path(__file__).resolve().parent.parent / ".chromadb"
     )
     use_vector_store: bool = False
+    fallback_to_offline_on_quota: bool = True
 
     llm_provider: str = Field(
         default="gemini",

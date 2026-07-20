@@ -27,3 +27,5 @@ services:
         sync: false
       - key: USE_VECTOR_STORE
         value: "false"
+      - key: FALLBACK_TO_OFFLINE_ON_QUOTA
+        value: "true"

@@ -69,6 +69,7 @@ def _serialize_run(run_id: str, final_state) -> dict[str, object]:
         "failure_reason": final_state.failure_reason,
         "pipeline_logs": final_state.pipeline_logs,
         "selected_images": [str(path) for path in final_state.selected_images],
+        "metadata": final_state.metadata,
         "artifacts": {
             "video_intent": _artifact_url(run_id, "video_intent.json"),
             "analysis": _artifact_url(run_id, "analysis.json"),

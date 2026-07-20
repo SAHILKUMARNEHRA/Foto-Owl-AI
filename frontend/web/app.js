@@ -145,6 +145,7 @@ const parseJsonResponse = async (response) => {
 const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 const renderRunPayload = (apiBase, payload) => {
+  const fallbackProvider = payload.metadata?.fallback_provider;
   const detail = JSON.stringify(
     {
       run_id: payload.run_id,
@@ -152,11 +153,16 @@ const renderRunPayload = (apiBase, payload) => {
       failure_reason: payload.failure_reason,
       pipeline_logs: payload.pipeline_logs,
       uploaded_images: payload.uploaded_images,
+      fallback_provider: fallbackProvider,
     },
     null,
     2,
   );
-  setStatus(payload.status === "completed" ? "Completed" : "Finished", payload.status === "completed" ? "success" : "error", detail);
+  setStatus(
+    payload.status === "completed" ? (fallbackProvider ? "Completed Offline" : "Completed") : "Finished",
+    payload.status === "completed" ? "success" : "error",
+    detail,
+  );
   renderArtifacts(apiBase, payload.artifacts, "Live Render output");
 };
 
