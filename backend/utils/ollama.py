@@ -221,6 +221,7 @@ class GeminiTextClient:
         self._model = model
         self._timeout = timeout
         self._max_retries_per_key = max_retries_per_key
+        self._current_key_idx = 0
 
     def invoke_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
         text = self._generate(
@@ -244,7 +245,14 @@ class GeminiTextClient:
         response_mime_type: str,
     ) -> str:
         last_exception = None
-        for key_index, key in enumerate(self._api_keys):
+        num_keys = len(self._api_keys)
+        start_idx = self._current_key_idx
+        self._current_key_idx = (self._current_key_idx + 1) % num_keys
+
+        for step in range(num_keys):
+            key_idx = (start_idx + step) % num_keys
+            key = self._api_keys[key_idx]
+
             for attempt in range(self._max_retries_per_key + 1):
                 try:
                     response = requests.post(
@@ -274,7 +282,7 @@ class GeminiTextClient:
                         f"Gemini request failed with status {status_code}: {detail}"
                     )
                     if status_code in {429, 403, 500, 502, 503, 504}:
-                        if attempt < self._max_retries_per_key and key_index == len(self._api_keys) - 1:
+                        if attempt < self._max_retries_per_key and step == num_keys - 1:
                             time.sleep(1)
                             continue
                         break
