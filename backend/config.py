@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     gemini_api_base_url: str = "https://generativelanguage.googleapis.com/v1beta"
     gemini_api_key: str | None = Field(
         default=None,
-        validation_alias=AliasChoices("GEMINI_API_KEY", "GOOGLE_API_KEY"),
+        validation_alias=AliasChoices("GEMINI_API_KEY", "GOOGLE_API_KEY", "GEMINI_API_KEYS"),
     )
     text_model: str = "gemini-2.5-flash"
     vision_model: str = "gemini-2.5-flash"

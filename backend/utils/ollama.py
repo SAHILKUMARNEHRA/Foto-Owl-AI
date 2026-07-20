@@ -208,16 +208,19 @@ class GeminiTextClient:
     def __init__(
         self,
         api_base_url: str,
-        api_key: str,
+        api_key: str | list[str],
         model: str,
         timeout: int = 120,
-        max_retries: int = 3,
+        max_retries_per_key: int = 1,
     ) -> None:
         self._api_base_url = api_base_url.rstrip("/")
-        self._api_key = api_key
+        if isinstance(api_key, str):
+            self._api_keys = [k.strip() for k in api_key.split(",") if k.strip()]
+        else:
+            self._api_keys = [k.strip() for k in api_key if k.strip()]
         self._model = model
         self._timeout = timeout
-        self._max_retries = max_retries
+        self._max_retries_per_key = max_retries_per_key
 
     def invoke_json(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
         text = self._generate(
@@ -240,46 +243,53 @@ class GeminiTextClient:
         user_parts: list[dict[str, Any]],
         response_mime_type: str,
     ) -> str:
-        response = None
-        for attempt in range(self._max_retries + 1):
-            response = requests.post(
-                f"{self._api_base_url}/models/{self._model}:generateContent",
-                params={"key": self._api_key},
-                json={
-                    "systemInstruction": {"parts": [{"text": system_prompt}]},
-                    "contents": [{"role": "user", "parts": user_parts}],
-                    "generationConfig": {"responseMimeType": response_mime_type},
-                },
-                timeout=self._timeout,
-            )
-            try:
-                response.raise_for_status()
-                break
-            except requests.HTTPError as exc:
-                status_code = exc.response.status_code if exc.response is not None else None
-                if status_code in {429, 500, 502, 503, 504} and attempt < self._max_retries:
-                    time.sleep(2**attempt)
-                    continue
-                detail = exc.response.text.strip() if exc.response is not None else str(exc)
-                raise RuntimeError(
-                    f"Gemini request failed with status {status_code}: {detail}"
-                ) from exc
+        last_exception = None
+        for key_index, key in enumerate(self._api_keys):
+            for attempt in range(self._max_retries_per_key + 1):
+                try:
+                    response = requests.post(
+                        f"{self._api_base_url}/models/{self._model}:generateContent",
+                        params={"key": key},
+                        json={
+                            "systemInstruction": {"parts": [{"text": system_prompt}]},
+                            "contents": [{"role": "user", "parts": user_parts}],
+                            "generationConfig": {"responseMimeType": response_mime_type},
+                        },
+                        timeout=self._timeout,
+                    )
+                    response.raise_for_status()
+                    data = response.json()
+                    candidates = data.get("candidates", [])
+                    if not candidates:
+                        raise ValueError(f"Gemini returned no candidates: {data}")
+                    parts = candidates[0].get("content", {}).get("parts", [])
+                    text = "".join(str(part.get("text", "")) for part in parts if "text" in part).strip()
+                    if not text:
+                        raise ValueError(f"Gemini returned no text parts: {data}")
+                    return text
+                except requests.HTTPError as exc:
+                    status_code = exc.response.status_code if exc.response is not None else None
+                    detail = exc.response.text.strip() if exc.response is not None else str(exc)
+                    last_exception = RuntimeError(
+                        f"Gemini request failed with status {status_code}: {detail}"
+                    )
+                    if status_code in {429, 403, 500, 502, 503, 504}:
+                        if attempt < self._max_retries_per_key and key_index == len(self._api_keys) - 1:
+                            time.sleep(1)
+                            continue
+                        break
+                    raise last_exception from exc
+                except Exception as exc:
+                    last_exception = exc
+                    break
 
-        if response is None:
-            raise RuntimeError("Gemini request did not produce a response.")
-        data = response.json()
-        candidates = data.get("candidates", [])
-        if not candidates:
-            raise ValueError(f"Gemini returned no candidates: {data}")
-        parts = candidates[0].get("content", {}).get("parts", [])
-        text = "".join(str(part.get("text", "")) for part in parts if "text" in part).strip()
-        if not text:
-            raise ValueError(f"Gemini returned no text parts: {data}")
-        return text
+        if last_exception:
+            raise last_exception
+        raise RuntimeError("Gemini request did not produce a response.")
 
 
 class GeminiVisionClient:
-    def __init__(self, api_base_url: str, api_key: str, model: str, timeout: int = 180) -> None:
+    def __init__(self, api_base_url: str, api_key: str | list[str], model: str, timeout: int = 180) -> None:
         self._text_client = GeminiTextClient(
             api_base_url=api_base_url,
             api_key=api_key,
@@ -303,3 +313,4 @@ class GeminiVisionClient:
             response_mime_type="application/json",
         )
         return _extract_json_payload(text)
+
