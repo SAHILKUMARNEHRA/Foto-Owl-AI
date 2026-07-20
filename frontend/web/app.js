@@ -11,8 +11,11 @@ const PRODUCTION_API_BASE = "https://foto-owl-ai.onrender.com";
 const LOCAL_API_BASE = "http://localhost:8000";
 const isLocalFrontend = ["localhost", "127.0.0.1"].includes(window.location.hostname);
 const DEFAULT_API_BASE = isLocalFrontend ? LOCAL_API_BASE : PRODUCTION_API_BASE;
+const MAX_UPLOAD_FILES = 4;
 const MAX_UPLOAD_EDGE = 1600;
 const JPEG_QUALITY = 0.82;
+const POLL_INTERVAL_MS = 3000;
+const MAX_POLL_ATTEMPTS = 180;
 
 const ARTIFACT_LABELS = {
   final_video: "Final MP4 Video",
@@ -139,6 +142,56 @@ const parseJsonResponse = async (response) => {
   }
 };
 
+const delay = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+const renderRunPayload = (apiBase, payload) => {
+  const detail = JSON.stringify(
+    {
+      run_id: payload.run_id,
+      status: payload.status,
+      failure_reason: payload.failure_reason,
+      pipeline_logs: payload.pipeline_logs,
+      uploaded_images: payload.uploaded_images,
+    },
+    null,
+    2,
+  );
+  setStatus(payload.status === "completed" ? "Completed" : "Finished", payload.status === "completed" ? "success" : "error", detail);
+  renderArtifacts(apiBase, payload.artifacts, "Live Render output");
+};
+
+const pollRun = async (apiBase, runId) => {
+  for (let attempt = 1; attempt <= MAX_POLL_ATTEMPTS; attempt += 1) {
+    await delay(POLL_INTERVAL_MS);
+    const response = await fetch(`${apiBase}/runs/${runId}`);
+    const payload = await parseJsonResponse(response);
+    if (!response.ok) {
+      throw new Error(payload.detail || "Unable to read run status.");
+    }
+
+    if (payload.status === "queued" || payload.status === "running" || payload.status === "pending") {
+      setStatus(
+        payload.status === "queued" ? "Queued" : "Running",
+        "running",
+        JSON.stringify(
+          {
+            run_id: payload.run_id,
+            status: payload.status,
+            pipeline_logs: payload.pipeline_logs,
+            message: "The backend is generating the real response. Keep this tab open.",
+          },
+          null,
+          2,
+        ),
+      );
+      continue;
+    }
+
+    return payload;
+  }
+  throw new Error("Run is still processing after several minutes. Open Render logs and check the backend worker.");
+};
+
 const runRequest = async (requestFactory) => {
   const apiBase = getApiBase();
   const prompt = promptInput.value.trim();
@@ -155,24 +208,29 @@ const runRequest = async (requestFactory) => {
 
   try {
     const response = await requestFactory(apiBase, prompt);
-    const payload = await parseJsonResponse(response);
+    let payload = await parseJsonResponse(response);
     if (!response.ok) {
       throw new Error(payload.detail || payload.error || "Pipeline request failed.");
     }
 
-    const detail = JSON.stringify(
-      {
-        run_id: payload.run_id,
-        status: payload.status,
-        failure_reason: payload.failure_reason,
-        pipeline_logs: payload.pipeline_logs,
-        uploaded_images: payload.uploaded_images,
-      },
-      null,
-      2,
-    );
-    setStatus(payload.status === "completed" ? "Completed" : "Finished", payload.status === "completed" ? "success" : "error", detail);
-    renderArtifacts(apiBase, payload.artifacts, "Live Render output");
+    if (payload.status === "queued" || payload.status === "running" || payload.status === "pending") {
+      setStatus(
+        "Queued",
+        "running",
+        JSON.stringify(
+          {
+            run_id: payload.run_id,
+            status: payload.status,
+            message: "Backend accepted the job. Polling for the real generated response now.",
+          },
+          null,
+          2,
+        ),
+      );
+      payload = await pollRun(apiBase, payload.run_id);
+    }
+
+    renderRunPayload(apiBase, payload);
   } catch (error) {
     setStatus("Backend Error", "error", error instanceof Error ? error.message : "Unexpected backend error.");
     artifactsContainer.className = "artifacts empty";
@@ -198,9 +256,13 @@ runUploadButton.addEventListener("click", async () => {
     return;
   }
 
-  const selectedFiles = Array.from(filesInput.files);
+  const selectedFiles = Array.from(filesInput.files).slice(0, MAX_UPLOAD_FILES);
   setButtonsDisabled(true);
-  setStatus("Optimizing", "running", `Compressing ${selectedFiles.length} image(s) before upload so Render receives a faster request.`);
+  setStatus(
+    "Optimizing",
+    "running",
+    `Compressing ${selectedFiles.length} image(s) before upload so Render receives a faster request and uses fewer Gemini vision credits.`,
+  );
   let uploadBatch;
   try {
     uploadBatch = await optimizeUploads(selectedFiles);

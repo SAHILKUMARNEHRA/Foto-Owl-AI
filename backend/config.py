@@ -41,6 +41,8 @@ class Settings(BaseSettings):
     embedding_model: str = "BAAI/bge-small-en-v1.5"
 
     max_selected_images: int = 8
+    max_analyzed_images: int = 4
+    max_uploaded_images: int = 4
     max_compile_retries: int = 3
     default_fps: int = 30
     default_scene_duration_seconds: float = 3.0

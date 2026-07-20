@@ -11,13 +11,20 @@ LOGGER = logging.getLogger(__name__)
 
 
 class ImageAnalyzerAgent:
-    def __init__(self, vision_client: VisionModelClient, max_selected_images: int) -> None:
+    def __init__(
+        self,
+        vision_client: VisionModelClient,
+        max_selected_images: int,
+        max_analyzed_images: int | None = None,
+    ) -> None:
         self._vision_client = vision_client
         self._max_selected_images = max_selected_images
+        self._max_analyzed_images = max_analyzed_images
 
     def analyze(self, image_paths: list[Path], prompt: str) -> tuple[list[ImageAnalysis], list[Path]]:
         analyses: list[ImageAnalysis] = []
-        for image_path in image_paths:
+        limited_image_paths = image_paths[: self._max_analyzed_images] if self._max_analyzed_images else image_paths
+        for image_path in limited_image_paths:
             brightness = compute_brightness(image_path)
             blur_score = compute_blur_score(image_path)
             system_prompt = (

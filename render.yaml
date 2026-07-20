@@ -13,6 +13,12 @@ services:
         value: gemini-2.0-flash-lite
       - key: VISION_MODEL
         value: gemini-2.0-flash
+      - key: MAX_SELECTED_IMAGES
+        value: "4"
+      - key: MAX_ANALYZED_IMAGES
+        value: "4"
+      - key: MAX_UPLOADED_IMAGES
+        value: "4"
       - key: DEFAULT_FPS
         value: "24"
       - key: RENDER_CRF

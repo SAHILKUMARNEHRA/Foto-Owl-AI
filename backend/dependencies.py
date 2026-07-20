@@ -78,6 +78,7 @@ def build_container(settings: Settings) -> Container:
         image_analyzer=ImageAnalyzerAgent(
             vision_client=vision_client,
             max_selected_images=settings.max_selected_images,
+            max_analyzed_images=settings.max_analyzed_images,
         ),
         storyboard_writer=StoryboardWriterAgent(
             model_client=text_client,
